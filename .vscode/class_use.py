@@ -22,7 +22,7 @@ class Input :
         output=input().split()
         output_list = list(map(lambda x : int(x), output))
         for i in output_list :
-            if i < -1000000 or i > 10000000 :
+            if i < -1000000 or i > 1000000 :
                 raise MyError("올바른 범위가 아닙니다")
         if len(output) != self.cnt :
             raise MyError("개수가 틀렸습니다")
