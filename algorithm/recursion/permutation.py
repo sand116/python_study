@@ -1,22 +1,19 @@
 
-def perm(n, i):
-    if i == len(n) - 1:
-        print(f' i = {i}' )
-        print(n)
-    else:
-        for j in range(i, len(n)):
-            print(f' i = {i} ,j = {j}' )
-            n[i], n[j] = n[j], n[i] # 단순 복사여서 값이 바뀔 것임,, - i,j swap 
-            print('재귀전--------------------------')
-            perm(n, i + 1)
-            print('재귀후--------------------------')
-            print(f' i = {i} ,j = {j}' )
-            
-            n[i], n[j] = n[j], n[i]  # swap back, for the next loop
-            print('for문 끝--------------------------')
-
-
-
-if __name__ == "__main__":
-    perm([1, 2, 3], 0)
+def permutation(num_list,selection_list,result):
+    copy_list=num_list.copy()
+    if len(num_list) == 1 :
+        selection_list.append(num_list[0])
+        result.append(selection_list)
+    else :
+        for i,j in enumerate(num_list) : #반복할 때는 변형하지 않기
+            copy_list[0], copy_list[i] = copy_list[i], copy_list[0] # 바꿀때는 바꾸기
+            permutation(copy_list[1:], selection_list+[j], result)
+        
+    
+num_list = [1,2,3,4,5,6]
+selection_list = []
+result = []
+permutation(num_list,selection_list,result)
+print(result)
+print(len(result))
         

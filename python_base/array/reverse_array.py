@@ -25,18 +25,33 @@ print([ i for i in my_list])
 #2차원 뒤집기
 #c스러움 
 def solution(mylist):
-    new_list= [ [] for i in range(len(mylist))]
-    for i in range(len(mylist)) :
-        for j in range(len(mylist)) :
-            print(i,j)
-            # temp = mylist[j][i]
-            # mylist[j][i] = mylist[i][j]
-            # mylist[i][j] = temp
-            new_list[i].append(mylist[j][i])
+    new_list = []
+    for i in range(4) :
+        new_list.append([row[i] for row in my_list])
     return new_list
 
 # python스러움
+#
+transpose_matrix = [[row[i] for row in my_list] for i in range(4)]
 
+# ex1 리스트 언패킹
 mylist = [ [1,2,3], [4,5,6], [7,8,9] ]
-new_list = list(map(list, zip(*mylist)))
+
+new_list = [map(list, zip(*mylist))]
+# zip도 iterator 객체
+print(new_list)
+
+
+
+
+# ex1
+list_comp=[(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+# 동일 코드 - for 문과 if문의 논리 순서가 동일함
+combs = []
+for x in [1,2,3]:
+    for y in [3,1,4]:
+        if x != y:
+            combs.append((x, y))
+
+
 
