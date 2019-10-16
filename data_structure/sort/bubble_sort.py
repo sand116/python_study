@@ -7,8 +7,7 @@ def bubble_sort (num_list) :
                            
          
     
-
-num_list = [ int(_) for _ in input().split()]
+heap_list = [ int(_) for _ in input().split()]
 print(bubble_sort(num_list))
 
 

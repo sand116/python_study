@@ -15,3 +15,6 @@ num_list = [ int(_) for _ in input().split()]
 print(insert_sort(num_list))
 
 # 시간 복잡도
+'''
+o(n^2)
+'''
