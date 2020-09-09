@@ -33,6 +33,7 @@ class BinarySearchTree :
             self.root = self.Node(new_data)
         else :
             self.__bst_insert_by_value(self.root, new_data)
+            
     def __bst_insert_by_value(self, compare_node, new_data) :
         if new_data < compare_node.data :
             if compare_node.left != None:

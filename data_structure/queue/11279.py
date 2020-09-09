@@ -30,7 +30,7 @@ class Heap :
             if self.heap_list[left] > self.heap_list[node_index] :
                 self.heap_list[left], self.heap_list[node_index] =  self.heap_list[node_index], self.heap_list[left]
                 self.heapify(left) 
-        elif right <= self.length-1 
+        elif right <= self.length-1 :
             if self.heap_list[right] > self.heap_list[node_index] :
                 self.heap_list[right], self.heap_list[node_index] =  self.heap_list[node_index], self.heap_list[right]                
                 self.heapify(right)
