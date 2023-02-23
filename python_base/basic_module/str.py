@@ -11,4 +11,13 @@ print(f'{s:<{n}}')
 
 
 #문자열 '리스트' 요소들 -> 문자열로 합치고싶을때
-''.join(list)
+# ''.join(list)
+
+k = [5,4]
+def ch(a) :
+    a.append(3)
+    res = id(a)
+    return res
+
+
+print(ch(k), id(k))

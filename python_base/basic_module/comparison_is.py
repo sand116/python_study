@@ -6,7 +6,9 @@ print(id(a)) #객체의 reference 출력
 print(id(6))
 print(a is 6)
 
+print(a==6)
 a=7
 print(id(a))
 print(a is 7)
 
+print(a==7)

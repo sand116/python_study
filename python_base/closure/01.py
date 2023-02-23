@@ -1,11 +1,14 @@
 
 '''
-파이썬 변수는 네임스페이스에 저장된다,
+파이썬 변수는 네임스페이스에 저장된다.
 locals()를 쓰면 현재 네임스페이스를 딕셔너리 형태로 출력할 수 있다
 '''
 x = 10
 
 print(locals())
+
+print("*"*100)
+
 # 전역범위에서 출력하면 전역네임스페이스를 가져옴
 # 함수 내에서 출력하면 함수 내의 locals()만 가져옴 
 
@@ -13,38 +16,44 @@ print(locals())
 
 # nonlocal
 
-def A():
-    x = 10        # A의 지역 변수 x
-    def B():
-        nonlocal x    # 현재 함수의 바깥쪽에 있는 지역 변수 사용
+def A1():
+    x = 10        # A의 지역 변수 x 
+    def wrapper():
+        nonlocal x    # 현재 함수의 바깥쪽에 있는 지역 변수 사용한다는 의미
         x = 20        # A의 지역 변수 x에 20 할당
- 
-    B()
-    print(x)      # A의 지역 변수 x 출력
- 
-A()
+        print(x)      # A의 지역 변수 x 출력
+    return wrapper
+
+def A2():
+    x = 10        # A의 지역 변수 x 
+    def wrapper():
+        nonlocal x    # 현재 함수의 바깥쪽에 있는 지역 변수 사용한다는 의미
+        x = 20        # A의 지역 변수 x에 20 할당
+        return x      # A의 지역 변수 x 반환
+
+    return wrapper()
+
+def A3(x):
+    def wrapper():
+        x.append(20)
+        print(x)    
+    return wrapper
+
+# A1 -> wrapper 함수 반환
+b1 = A1()
+print(b1)
+
+# A2 -> wrapper 함수 호출한 후  wrapper함수의 리턴 값 반환
+b2 = A2()
+print(b2)
+
+#
+
+list_ = [] 
+b3 = A3(list_)
+print(b3)
 
 
-# 클로저 함수 : 함수를 반환하는 경우 반환된 함수를 클로저라 함.
-# ex1)
-def calc1():
-    a = 3
-    b = 5
-    def mul_add(x):
-        return a * x + b    # 함수 바깥쪽에 있는 지역 변수 a, b를 사용하여 계산
-    return mul_add          # mul_add 함수를 반환 - 함수 반환시 ()붙이지 않음
- 
-c = calc1() # c에 저장된 함수가 클로저 mul_add
-print(c(1), c(2), c(3), c(4), c(5))
-
-
-# 함수를 둘러싼 환경(지역 변수, 코드 등)을 계속 유지하다가, 함수를 호출할 때 다시 꺼내서 사용하는 함수를 클로저(closure)
-# ex2) 
-def calc2():
-    a = 3
-    b = 5
-    return lambda x: a * x + b    # 람다 표현식을 반환
- 
-c = calc2()
-print(c(1), c(2), c(3), c(4), c(5))
-
+b3()
+b3()
+b3()

@@ -35,7 +35,8 @@ class Student(Person):
  
 james = Student()
 print(james.school)
-print(james.hello)    
+#print(james.hello)
+
 # 기반 클래스의 속성을 출력하려고 하면 에러가 발생함 왜? -  기반 클래스 Person의 __init__ 메서드가 호출되지 않았기 때문
 # 파생클래스를 호출한다고 해서 기반클래스의 __init__ 메써드도 같이 호출되는 것은 아님
 # 해결 방법 - super()로 기반 클래스 초기화하기
@@ -60,7 +61,7 @@ print(james.hello)
 #   기반 클래스를 초기화하지 않아도 되는 경우
 '''
 - 만약 파생 클래스에서 __init__ 메서드를 생략한다면
- 기반 클래스의 __init__이 자동으로 호출되므로 super()는 사용하지 않아도 됨.
+ 기반 클래스의 __init__이 자동으로 호출되므로 super()는 사용하지 않아도 된다.
  '''
 
 
@@ -74,8 +75,10 @@ print(james.hello)
 이를 방지하기 위해
 & 원래 기능을 유지하면서 다른 기능 추가해야할 때 사용함
 '''
- class Person:
-        def greeting(self):
+
+print('-'*100)
+class Person:
+    def greeting(self):
         print('안녕하세요.')
  
 class Student(Person):
@@ -85,6 +88,7 @@ class Student(Person):
 james = Student()
 james.greeting()
 
+print('-'*100)
 
 class Person:
     def greeting(self):
@@ -98,6 +102,7 @@ class Student(Person):
 james = Student()
 james.greeting()
 
+print('-'*100)
 
 # 포함 관계 
 class Person:
@@ -110,6 +115,18 @@ class PersonList:
  
     def append_person(self, person):    # 리스트 속성에 Person 인스턴스를 추가하는 함수
         self.person_list.append(person)
+
+p1 = Person()
+p2 = Person()
+p3 = Person()
+
+pl = PersonList()
+pl.append_person(p1)
+pl.append_person(p2)
+pl.append_person(p3)
+
+print(pl.person_list)
+
 '''
 상속을 사용하지 않고 속성에 인스턴스를 넣어서 관리하므로 PersonList가 Person을 포함하고 있습니다.
 이러면 사람 목록 PersonList와 사람 Person은 동등한 관계가 아니라 포함 관계입니다. 즉, "사람 목록은 사람을 가지고 있다."

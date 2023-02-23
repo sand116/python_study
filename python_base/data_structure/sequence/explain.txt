@@ -1,0 +1,14 @@
+#시퀀스형
+# 컨테이너 : 서로 다른 자료형을 담을 수 있음 - list, tuple, collections.deque
+# 플랫 : 한개의 자료형만 가능 - str, bytes, bytearray, array.array, memoryview
+# 가변 : list, bytearray, array.array, memoryview, deque
+# 불변 : tuple, str, bytes
+
+# 해시 테이블 : 적은 리소스로 많은 데이터를 효율적으로 관리
+# key에 value를 저장하는 구조로 파이썬 dict : 해시 테이블 
+# 키 값의 연산 결과(해시값)에 따라 직접 접근이 가능한 구조
+# key 값을 해싱 함수 -> 해시 주소 - key에 대한 value 참조
+# Dict -> Key 중복 허용X, Set -> 중복 허용 X, 
+
+
+

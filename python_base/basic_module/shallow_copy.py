@@ -20,6 +20,7 @@ print(b)    # 10 출력
 b = "abc" # 새 객체 할당
 print(b)    # abc 출력
 print(a)    # 10 출력
+
 '''
 위의 경우처럼 복사된 참조 변수를 수정했을때, 처음에 할당한 참조 변수의 값 역시
 똑같이 수정되는 것은 리스트와 같은 변경가능(mutable) 객체일 때만 해당한다는 것입니다. 
@@ -37,14 +38,19 @@ shallow copy
 import copy
 
 a = [1, [1, 2, 3]]
+
+#  내부 객체가 immutable 객체의 경우
 b = copy.copy(a)    # shallow copy 발생
 print(b)    # [1, [1, 2, 3]] 출력
 b[0] = 100
+
 print(b)    # [100, [1, 2, 3]] 출력,
-print(a)    # [1, [1, 2, 3]] 출력, shallow copy 가 발생해 복사된 리스트는 별도의 객체이므로 item을 수정하면 복사본만 수정된다. (immutable 객체의 경우)
+print(a)    # [1, [1, 2, 3]] 출력, shallow copy 가 발생해 복사된 리스트는 별도의 객체이므로 item을 수정하면 복사본만 수정된다.
+
+# 내부 객체가 mutable한 경우
 
 c = copy.copy(a)
 c[1].append(4)    # 리스트의 두번째 item(내부리스트)에 4를 추가
 print(c)    # [1, [1, 2, 3, 4]] 출력
 print(a)    # [1, [1, 2, 3, 4]] 출력, a가 c와 똑같이 수정된 이유는 리스트의 item 내부의 객체는 동일한 객체이므로 mutable한 리스트를 수정할때는 둘다 값이 변경됨
-# 내부 객체가 mutable한 경우
+
