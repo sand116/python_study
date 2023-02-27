@@ -63,8 +63,8 @@ non_deco2 = perf_clock(sum_func)
 
 
 
-# print(non_deco1, non_deco1.__code__.co_freevars)
-# print(non_deco2, non_deco2.__code__.co_freevars)
+print(non_deco1, non_deco1.__code__.co_freevars)
+print(non_deco2, non_deco2.__code__.co_freevars)
 
 print('-'*40, 'Called Non Decorator -> time_func ')
 print()
