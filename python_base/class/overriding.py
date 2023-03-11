@@ -12,6 +12,35 @@
 # 기본 Overriding 예제
 
 
+# 메서드 오버라이딩 - 파생 클래스에서 기반 클래스의 메서드를 새로 정의 오버라이딩 - 무시하다 
+print('-'*100)
+
+class Person:
+    def greeting(self):
+        print('안녕하세요.')
+ 
+class Student(Person):
+    def greeting(self):
+        print('안녕하세요. 저는 파이썬 코딩 도장 학생입니다.')
+ 
+james = Student()
+james.greeting()
+
+print('-'*100)
+
+class Person:
+    def greeting(self):
+        print('안녕하세요.')
+ 
+class Student(Person):
+    def greeting(self):
+        super().greeting()    # 기반 클래스의 메서드 호출하여 중복을 줄임
+        print('저는 파이썬 코딩 도장 학생입니다.')
+ 
+james = Student()
+james.greeting()
+
+
 class ParentEx1():
     def __init__(self):
         self.value = 5

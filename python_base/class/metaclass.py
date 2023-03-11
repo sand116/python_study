@@ -18,30 +18,37 @@ why? meta class?
 
 # EX 1 
 # type 예제
-# type 이란 class를 만드는 class를 의미한다.
-class SampleA(): # class == object
+# type 이란 class(객체로 생각)를 만드는 class를 의미한다.
+
+class SampleA(): # class가 곧 object 라고 생각
     pass
 
 # obj1 -> sampleA 객체(인스턴스)
 obj1 = SampleA()
 print('Ex 1 > ', obj1.__class__)
-print('Ex 1 > ', SampleA.__class__)
 
+# 객체의 type 호출
 print('Ex 1 > ', type(obj1))
+
+# 객체의 type은 결국 객체의 class 를 의미  
 print('Ex 1 > ', type(obj1) is obj1.__class__)
+
+
+#  class의 class는 type class, 즉 class를 만드는 class는 type class임을 알 수 있음
+print('Ex 1 > ', SampleA.__class__)
 
 # class의 class, 즉 meta class는 type class 를 의미
 print('Ex 1 > ', obj1.__class__.__class__)
 
 
 # type()으로 동적 클래스 생성하기
-# Names(아름), Bases(상속), Dict(속성, 메소드 (즉, namespace))
+# Names(class 이름), Bases(상속), Dict(속성, 메소드 (즉, namespace))
 s1 = type('SampleB', (),{})
-print('Ex 1 > ', s1.__class__)
-print('Ex 1 > ', type(s1))
-print('Ex 1 > ', type(s1) is s1.__class__)
-print('Ex 1 > ', s1.__base__)
-print('Ex 1 > ', s1.__dict__)
+print('Ex 2 > ', s1.__class__)
+print('Ex 2 > ', type(s1))
+print('Ex 2 > ', type(s1) is s1.__class__)
+print('Ex 2 > ', s1.__base__)
+print('Ex 2 > ', s1.__dict__)
 
 
 

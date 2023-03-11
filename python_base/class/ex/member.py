@@ -1,5 +1,7 @@
 from datetime import date
 
+
+#상위 클래스 
 class Member(object):
     def __init__(self, name, birthdate):
         self._name = name

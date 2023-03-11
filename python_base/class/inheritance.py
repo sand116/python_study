@@ -65,43 +65,6 @@ print(james.hello)
  '''
 
 
-# 메서드 오버라이딩 - 파생 클래스에서 기반 클래스의 메서드를 새로 정의 오버라이딩 - 무시하다 
-'''
-왜 사용하는가 ?
-
-어떤 기능이 같은 메서드 이름으로 계속 사용되어야 할 때 메서드 오버라이딩을 활용.
-만약 Student 클래스에서 인사하는
-메서드를 greeting2로 만들어야 한다면 모든 소스 코드에서 메서드 호출 부분을 greeting2로 수정해야하기때문에
-이를 방지하기 위해
-& 원래 기능을 유지하면서 다른 기능 추가해야할 때 사용함
-'''
-
-print('-'*100)
-class Person:
-    def greeting(self):
-        print('안녕하세요.')
- 
-class Student(Person):
-    def greeting(self):
-        print('안녕하세요. 저는 파이썬 코딩 도장 학생입니다.')
- 
-james = Student()
-james.greeting()
-
-print('-'*100)
-
-class Person:
-    def greeting(self):
-        print('안녕하세요.')
- 
-class Student(Person):
-    def greeting(self):
-        super().greeting()    # 기반 클래스의 메서드 호출하여 중복을 줄임
-        print('저는 파이썬 코딩 도장 학생입니다.')
- 
-james = Student()
-james.greeting()
-
 print('-'*100)
 
 # 포함 관계 

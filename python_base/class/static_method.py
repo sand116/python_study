@@ -22,6 +22,17 @@ Calc.mul(10, 20)    # 클래스에서 바로 메서드 호출
 a = Calc() #인스턴스
 a.add(2,3) #인스턴스에서도 호출 가능
 
+
+#인스턴스.__dict__
+print(a.__dict__)
+
+print(Calc.__dict__)
+print(dir(a))
+print(set(dir(Calc))- set(dir(a)))
+#클래스.__dict__
+
+
+
 # 클래스 메써드
 
 '''
@@ -46,6 +57,7 @@ class Person:
     def __init__(self):
         Person.count += 1    # 인스턴스가 만들어질 때 - 인스턴스 메쏘드임
                              # 클래스 속성 count에 1을 더함
+                             
                              # 클래스속성임을 명확하게 하기위해 Person.count 로 설정
                              # 인스턴스 메서드는 클래스 속성에 접근 가능 
  
